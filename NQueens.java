@@ -21,7 +21,7 @@ public class NQueens {
         for (int j = 0; j < board.length; j++) {
             board[row][j] = 'Q'; // here we are assigining queen for each row one time
             nQueens(board, row + 1); // for next row recursively it will be called
-            board[row][j] = 'X'; // after filling the queen rest should be empty but for now it's X for sign
+            board[row][j] = 'X'; // after filling the queen rest should be empty but for now it's X for sign for each row each row should contain 1 queen only 
         }
     }
 
