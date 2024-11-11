@@ -9,27 +9,33 @@ public class NQueens {
     }
 
     public static void nQueens(char board[][], int row) {
-        int count = 1;
-        // step -3 : base casae
+        // Base case: if we've placed queens on all rows, print the board configuration
         if (board.length == row) {
             System.out.println("-------------------Board------------------------");
-            printBoard(board); // this will print each board one time after each row queen is placed
+            printBoard(board);
             return;
         }
-        // step -2 : to find only ways of keeping queen to each colum but for 1 row in 1
-        // col only
+        
+        // Recursive case: try placing a queen in each column of the current row
         for (int j = 0; j < board.length; j++) {
-            board[row][j] = 'Q'; // here we are assigining queen for each row one time
-            nQueens(board, row + 1); // for next row recursively it will be called
-            board[row][j] = 'X'; // after filling the queen rest should be empty but for now it's X for sign for each row each row should contain 1 queen only 
+            // Place a queen at board[row][j]
+            board[row][j] = 'Q';
+            
+            // Move to the next row to continue placing queens
+            nQueens(board, row + 1);
+            
+            // Backtrack: remove the queen from board[row][j] after printing one board for next 
+            //after printing it go back to that queen place and make it empty so next configuration can apply
+            //print kake return kaila ke badh backtrack hoke sab empty kadetai so ferse nQueen fun apan kam kartain e repeat hoit rahtai jenaki 4 ta ways atai 2 X 2 board ke laagin so 4 ber ena hotai 
+            board[row][j] = 'X';
         }
     }
 
     public static void main(String[] args) {
-        int n = 2; // let's take 2*2 box
+        int n = 2; // let's take a 2x2 board for testing
         char chessBox[][] = new char[n][n];
 
-        // step-1 : To initialize chess
+        // Initialize the chess board with 'X' to indicate empty spaces
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 chessBox[i][j] = 'X';
