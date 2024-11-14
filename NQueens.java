@@ -25,7 +25,7 @@ public class NQueens {
         }
 
         // for RightDiagonal = we have to move row = row - 1 and col = col + 1
-        for (int i = row - 1, j = col - 1; i >= 0 && j == board.length - 1; i--, j++) {
+        for (int i = row - 1, j = col + 1; i >= 0 && j <= board.length - 1; i--, j++) {
             if (board[i][j] == 'Q') {
                 return false;
             }
@@ -56,16 +56,13 @@ public class NQueens {
                 // next
                 // after printing it go back to that queen place and make it empty so next
                 // configuration can apply
-                // print kake return kaila ke badh backtrack hoke sab empty kadetai so ferse
-                // nQueen fun apan kam kartain e repeat hoit rahtai jenaki 4 ta ways atai 2 X 2
-                // board ke laagin so 4 ber ena hotai
                 board[row][j] = 'X';
             }
         }
     }
 
     public static void main(String[] args) {
-        int n = 4; // let's take a 2x2 board for testing
+        int n = 4; // let's take a N*N board for testing
         char chessBox[][] = new char[n][n];
 
         // Initialize the chess board with 'X' to indicate empty spaces
