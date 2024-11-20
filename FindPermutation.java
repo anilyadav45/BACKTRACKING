@@ -11,7 +11,8 @@ public class FindPermutation {
             // after taking the curr char i want to delete this char so i can ignore using
             // substring method and assinging in new str
             String newStr = str.substring(0, i) + str.substring(i + 1); // here char at i will be ignored
-            getPermutation(newStr, ans + curr); // all the time these newStr will changed as arg for recurion
+            getPermutation(newStr, ans + curr); // all the time these newStr will changed as arg for recurion 
+            //this
 
         }
     }
