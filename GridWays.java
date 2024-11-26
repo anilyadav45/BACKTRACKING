@@ -3,7 +3,7 @@ class GridWays {
         // base case : when they meet last col and row box i.e n-1,m-1
         if (i == n - 1 && j == m - 1) {
             return 1; // although we reached there exist one way
-        } else if (i == n && j == n) {
+        } else if (i == n || j == m) {
             return 0; // when it try to go out of boundary
         }
         // kaam : to find ways for right and bottom
